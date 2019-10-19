@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            width: 200px;
+            perspective: 500px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+        }
+        .cube{
+            position: relative;
+            width: 200px;
+            transform-style: preserve-3d;
+            transform: rotateY(-40deg) rotateX(-20deg);
+            animation-name: cube;
+            animation-iteration-count: infinite;
+            animation-duration: 10s;
+            animation-timing-function: linear;
+        }
+        .cube > div{
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            transform-style: preserve-3d;
+            opacity: 0.5;
+        }
+        .front{
+            background-color: red;
+            transform: translateZ(100px);
+        }
+        .back{
+            transform: translateZ(-100px) rotateX(180deg);
+            background-color: blue;
+        }
+        .top{
+            transform:  rotateX(-90deg) translateY(-100px);
+            transform-origin: center top;
+            background-color: orange;
+        }
+        .bottom{
+            transform:  rotateX(90deg) translateY(100px);
+            transform-origin: center bottom;
+            background-color: yellow;
+        }
+        .left{
+            transform:  rotateY(-90deg) translateX(-100px);
+            transform-origin: center left;
+            background-color: green;
+        }
+        .right{
+            transform:  rotateY(90deg) translateX(100px);
+            transform-origin: center right;
+            background-color: violet;
+        }
+        @keyframes cube{
+            from{transform: rotateY(0deg) rotateX(0deg);}
+            to{transform: rotateY(360deg) rotateX(360deg);}
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="cube">
+            <div class="front">Front</div>
+            <div class="back">Back</div>
+            <div class="top">Top</div>
+            <div class="bottom">Bottom</div>
+            <div class="left">Left</div>
+            <div class="right">Right</div>
+        </>
+    </div>
+</body>
+</html>
